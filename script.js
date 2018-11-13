@@ -9,7 +9,7 @@ var messages = ["You may want to readjust some of your attitudes in the next cou
 "you has finally returned! Try to get back to your spontaneous self.", "At this time, music will be the key to pleasure and sensuality, so allow music to fill your senses!"]
 
 var image = ["image/aquarius.png", "image/pisces.png", "image/aries.jpg", "image/taurus.jpeg", "image/gemini.jpeg", "image/cancer.jpg",
-    "image/leo.jpg", "image/virgo.jpg", "image/libra.jpg", "image/scorpio.jpgg", "image/sagittarius.jpg", "image/capricorn.jpg"]
+    "image/leo.jpg", "image/virgo.jpg", "image/libra.jpg", "image/scorpio.jpg", "image/sagittarius.jpg", "image/capricorn.jpg"]
 
 function runFunction(){
     var name = document.getElementById("name").value;
@@ -22,10 +22,14 @@ function runFunction(){
     console.log(name);
     console.log(sign);
 
+    badDays(month, day);
+    var bday = happyBirthday(month, day);
+
+
     document.getElementById("sign").innerHTML = signs[sign]
     document.getElementById("message").innerHTML = messages[sign]
     document.getElementById("signImage").src = image[sign]
-    document.innerHTML("Hello " + name + "! " + "Your sign is " + sign + ", " + "and your horoscope is " + messages)
+    //document.innerHTML("Hello " + name + "! " + "Your sign is " + sign + ", " + "and your horoscope is " + messages)
 }
 
 function determineSign(day, month){
@@ -66,4 +70,33 @@ function determineSign(day, month){
         return 11;
     }
 
+}
+
+function badDays(month, day){
+    if(month==2 && day>=30){
+        alert("Invalid Date");
+    }
+    if(month==4 && day==31){
+        alert("Invalid Date");
+    }
+    if(month==6 && day==31){
+        alert("Invalid Date");
+    }
+    if(month==9 && day==31){
+        alert("Invalid Date");
+    }
+    if(month==11 && day==31) {
+        alert("Invalid Date");
+    }
+}
+
+function happyBirthday(month, day){
+    var today = new Date();
+    var currentMonth = today.getMonth();
+    var currentDay = today.getDate();
+    console.log("now is" + currentMonth)
+    console.log("now is" + currentDay)
+    if(today == currentMonth && today == currentDay){
+        return "Happy Birthday!"
+    }
 }
