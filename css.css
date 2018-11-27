@@ -1,7 +1,13 @@
 body {
     background-color: paleturquoise;
+    text-align: center;
 }
 h1 {
+    font-family: "Bangla Sangam MN";
+    font-size: 60px;
+}
+
+h2,h3,div {
     font-family: "Bangla Sangam MN";
 }
 
